@@ -4,6 +4,12 @@ public class Calc_history {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        // Нам нужно создать один калькулятор и спользовать его весь жизненный цикл программы
+        // Используй конструкцию while(true) и switch/case 
+        // Входные параметры: операция (может быть число или строка), первое число, второе число
+        // Выход из программы по специальномы числу иди слову
+        // Перед завершением программы напечатать в консоль все лперации из калькулятора
+        
         Calculator_1 calc1 = new Calculator_1();
         calc1.a = scanner.nextDouble();
         calc1.b = scanner.nextDouble();
@@ -30,10 +36,20 @@ public class Calc_history {
 
     }
 }
+
+// Имя класса не должно обычно содержать специальных символов. Должен быть Calculator. Обычно каждый класс располагается в своем файле
 class Calculator_1{
+    // Тут не нужны эти поля класса так как поля класа используются для описания свойст и состаяния
     double a;
     double b;
+    // Нужно добавить поле history.  private List<String> history = new ArrayList<>(); Это коллекция строк.
+    // history отображает состояние нашего калькулятора - какие операции были произведены
+    // для каждой операции добавлять запись в history. 
+    // Пример на методе add. history.add("Сложение:" + a + " + " + b + " = " + result);
 
+    // !!!! методы класса всегда с маленькой буквы !!!!
+    
+    // Мы должны передавать a и b как параметры метода. Касается всех методов. Пример double add(double a, double b)
     double Add(){
         double numbers = a + b;
         return numbers;
@@ -51,4 +67,5 @@ class Calculator_1{
         double result4 = a / b;
         return result4;
     }
+    // добавь метод void printHistory() который будет выводить в консоль историю операций
 }
